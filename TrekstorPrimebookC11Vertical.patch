@@ -1,0 +1,40 @@
+--- silead_dmi.c	2018-05-01 21:47:31.000000000 +0200
++++ silead_dmi.c.vertical	2018-05-13 12:17:24.519301000 +0200
+@@ -247,6 +247,22 @@
+ 	.properties	= trekstor_primebook_c13_props,
+ };
+ 
++static const struct property_entry trekstor_primebook_c11_props[] = {
++	PROPERTY_ENTRY_U32("touchscreen-size-x", 1970),
++	PROPERTY_ENTRY_U32("touchscreen-size-y", 1530),
++	PROPERTY_ENTRY_STRING("firmware-name",
++			      "gsl1680-trekstor-primebook-c11.fw"),
++	PROPERTY_ENTRY_U32("silead,max-fingers", 10),
++	PROPERTY_ENTRY_BOOL("silead,home-button"),
++	PROPERTY_ENTRY_BOOL("touchscreen-swapped-x-y"),
++	{ }
++};
++
++static const struct silead_ts_dmi_data trekstor_primebook_c11_data = {
++	.acpi_name	= "MSSL1680:00",
++	.properties	= trekstor_primebook_c11_props,
++};
++
+ static const struct property_entry teclast_x98plus2_props[] = {
+ 	PROPERTY_ENTRY_U32("touchscreen-size-x", 2048),
+ 	PROPERTY_ENTRY_U32("touchscreen-size-y", 1280),
+@@ -430,6 +446,14 @@
+ 		},
+ 	},
+ 	{
++		/* Trekstor Primebook C11 */
++		.driver_data = (void *)&trekstor_primebook_c11_data,
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "TREKSTOR"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Primebook C11"),
++		},
++	},
++	{
+ 		/* Teclast X98 Plus II */
+ 		.driver_data = (void *)&teclast_x98plus2_data,
+ 		.matches = {
