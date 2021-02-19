@@ -5,7 +5,7 @@ working on my Trekstor-Primebook C11.
 No warranty at all, but on my device it currently works fine.
 
 Update: 
-The Kernelchanges where merged into the new Kernel.
+The kernel-changes were merged into the official kernel.
 So if you have a recent Kernel and no working touchscreen follw this steps:
 1. Add given .fw-file to /lib/firmware/silead
 2. run 'sudo modprobe silead'
