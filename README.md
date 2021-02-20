@@ -8,7 +8,7 @@ Update:
 The kernel-changes were merged into the official kernel.
 So if you have a recent Kernel and no working touchscreen follw this steps:
 1. Add given .fw-file to /lib/firmware/silead
-2. run 'sudo modprobe silead'
+2. run 'sudo modprobe -r silead; sudo modprobe silead'
 
 If you want to patch an old Kernel-version you have to do this :
 1. Add given .fw-file to /lib/firmware/silead
